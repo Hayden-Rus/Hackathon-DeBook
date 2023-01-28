@@ -5,14 +5,14 @@
 #     if player == 21:
 #         print("Blackjack, You Win")
 #         break
-import pygame
-import sys
+import pygame, sys, math
+pygame.init()
 screen = pygame.display.set_mode((800, 600))
 WIDTH = 800
 HEIGHT = 600
 LINE_COLOR = (0 , 0 , 0 )
-background = pygame.image.load("backgroundpic.jpeg").convert_alpha(screen)
-def draw_game_won(win):
+background = pygame.image.load("Start Screen.png").convert_alpha(screen)
+def draw_debook_cover(win):
     start_title_font = pygame.font.Font(None, 75)
     button_font = pygame.font.Font(None, 50)
 
@@ -24,7 +24,7 @@ def draw_game_won(win):
         center=(WIDTH // 2, HEIGHT // 2 - 150))
     win.blit(title_surface, title_rectangle)
 
-    exit_text = button_font.render("Exit", 0, (255, 255, 255))
+    exit_text = button_font.render("Enter", 0, (255, 255, 255))
     exit_surface = pygame.Surface((exit_text.get_size()[0] + 20, exit_text.get_size()[1] + 20))
     exit_surface.fill(LINE_COLOR)
     exit_surface.blit(exit_text, (10, 10))
@@ -41,7 +41,8 @@ def draw_game_won(win):
                sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                if exit_rectangle.collidepoint(event.pos):
-                   sys.exit()
+                   # sys.exit()
+                print("hahhaha")
 
 if __name__ == '__main__':
-    draw_game_won(screen)
+    draw_debook_cover(screen)
