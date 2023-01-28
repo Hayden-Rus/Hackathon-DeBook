@@ -37,16 +37,23 @@ def draw_debook_cover(win):
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-               sys.exit()
+                sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-               if exit_rectangle.collidepoint(event.pos):
-                   # sys.exit()
-                draw_debook_opened(screen)
+
+                if exit_rectangle.collidepoint(event.pos):
+        # sys.exit()
+                 draw_debook_opened(screen)
+
+
+def rectangle(x,y):
+    pygame.draw.rect(screen, (0,0,0), pygame.Rect(x-4, y-4, 68, 68))
+    pygame.draw.rect(screen, (255,255,240), pygame.Rect(x, y, 60, 60))
 def draw_debook_opened(win):
     start_title_font = pygame.font.Font(None, 50)
     button_font = pygame.font.Font(None, 40)
     win.blit(debook_open, (-80, -55))
     win.blit(red_card, (125, 150))
+
     red_card_caption =  start_title_font.render("Player Hand:", 0, ((255, 0,0)))
     rcaption_rectangle = red_card_caption.get_rect(
         center=(WIDTH // 2 - 167, HEIGHT // 2 -200))
@@ -70,7 +77,8 @@ def draw_debook_opened(win):
 
     submit_rectangle = submit_surface.get_rect(
         center=(WIDTH // 2 + 260, HEIGHT // 2 + 265))
-
+    rectangle(190,420)
+    rectangle(550, 420)
     win.blit(submit_surface, submit_rectangle)
 
     pygame.display.update()
@@ -79,8 +87,11 @@ def draw_debook_opened(win):
             if event.type == pygame.QUIT:
                sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-               if submit_rectangle.collidepoint(event.pos):
-                   sys.exit()
+                x_cord, y_cord = event.pos
+                print(x_cord, y_cord)
+                if submit_rectangle.collidepoint(event.pos):
+                    sys.exit()
+
 
 
 if __name__ == '__main__':
