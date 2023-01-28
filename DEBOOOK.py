@@ -19,10 +19,11 @@ def draw_debook_cover(win):
     win.blit(background, (0, 0))
     pygame.display.flip()
 
-    title_surface = start_title_font.render("", 0, LINE_COLOR)
+    title_surface = start_title_font.render("DEBOOK", 0, ((255, 255, 245)))
     title_rectangle = title_surface.get_rect(
-        center=(WIDTH // 2, HEIGHT // 2 - 150))
+        center=(WIDTH // 2 + 200, HEIGHT // 2 - 150))
     win.blit(title_surface, title_rectangle)
+
 
     exit_text = button_font.render("Enter", 0, (255, 255, 255))
     exit_surface = pygame.Surface((exit_text.get_size()[0] + 20, exit_text.get_size()[1] + 20))
@@ -30,7 +31,7 @@ def draw_debook_cover(win):
     exit_surface.blit(exit_text, (10, 10))
 
     exit_rectangle = exit_surface.get_rect(
-        center=(WIDTH // 2, HEIGHT // 2))
+        center=(WIDTH // 2, HEIGHT // 2 + 220))
 
     win.blit(exit_surface, exit_rectangle)
 
