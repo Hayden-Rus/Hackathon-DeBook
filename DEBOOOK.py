@@ -55,15 +55,17 @@ def draw_debook_opened(win):
 
 
 
-    exit_text = button_font.render("Enter", 0, (255, 255, 255))
-    exit_surface = pygame.Surface((exit_text.get_size()[0] + 20, exit_text.get_size()[1] + 20))
-    exit_surface.fill(LINE_COLOR)
-    exit_surface.blit(exit_text, (10, 10))
+    submit_text = button_font.render("SUBMIT", 0, (255, 255, 220))
+    submit_surface = pygame.Surface((submit_text.get_size()[0] + 20, submit_text.get_size()[1] + 20))
+    submit_surface.fill((0,200,50))
+    submit_surface.blit(submit_text, (10, 10))
 
-    exit_rectangle = exit_surface.get_rect(
+
+
+    submit_rectangle = submit_surface.get_rect(
         center=(WIDTH // 2, HEIGHT // 2 + 220))
 
-    win.blit(exit_surface, exit_rectangle)
+    win.blit(submit_surface, submit_rectangle)
 
     pygame.display.update()
     while True:
@@ -71,9 +73,9 @@ def draw_debook_opened(win):
             if event.type == pygame.QUIT:
                sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-               if exit_rectangle.collidepoint(event.pos):
-                   # sys.exit()
-                print("hahhaha")
+               if submit_rectangle.collidepoint(event.pos):
+                   sys.exit()
+
 
 if __name__ == '__main__':
     draw_debook_cover(screen)
