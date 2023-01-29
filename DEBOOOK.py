@@ -507,7 +507,7 @@ hit_screen = pygame.image.load("Hit.jpg").convert_alpha(screen)
 hit_screen = pygame.transform.scale(hit_screen,(800,600))
 
 quit_screen = pygame.image.load("Quit.jpeg").convert_alpha(screen)
-quit_screen = pygame.transform.scale(quit_screen,(800,600))
+quit_screen = pygame.transform.scale(quit_screen,(800,700))
 
 def split(win):
     start_title_font = pygame.font.Font(None, 75)
@@ -660,7 +660,7 @@ def draw_quit(win):
     exit_surface.blit(exit_text, (10, 10))
 
     exit_rectangle = exit_surface.get_rect(
-        center=(WIDTH // 2 +225, HEIGHT // 2 + 160))
+        center=(WIDTH // 2 +225, HEIGHT // 2 + 250))
 
     win.blit(exit_surface, exit_rectangle)
 
@@ -670,7 +670,7 @@ def draw_quit(win):
     quit_surface.blit(quit_text, (10, 10))
 
     quit_rectangle = quit_surface.get_rect(
-        center=(WIDTH // 2 +350 , HEIGHT // 2 + 160))
+        center=(WIDTH // 2 +350 , HEIGHT // 2 + 250))
     win.blit(quit_surface, quit_rectangle)
 
     pygame.display.update()
