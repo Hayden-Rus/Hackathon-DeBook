@@ -139,45 +139,45 @@ def draw_debook_opened(win):
                         if len(val) < 2:
                             if event.key == pygame.K_0:
                                 val += str(0)
-                                if (int(val) < 21):
+                                if (int(val) < 21 and int(val)>3):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_1:
                                 val += str(1)
-                                if (int(val) < 21):
+                                if (int(val) < 21 and int(val)>3):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_2:
                                 val += str(2)
-                                if (int(val) < 21):
+                                if (int(val) < 21 and int(val)>3):
                                     draw_text(x_cord, y_cord, val)
                                 else:
                                     break
                             if event.key == pygame.K_3:
                                 val += str(3)
-                                if (int(val) < 21):
+                                if (int(val) < 21 and int(val)>3):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_4:
                                 val += str(4)
-                                if (int(val) < 21):
+                                if (int(val) < 21 and int(val)>3):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_5:
                                 val += str(5)
-                                if (int(val) < 21):
+                                if (int(val) < 21 and int(val)>3):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_6:
                                 val += str(6)
-                                if (int(val) < 21):
+                                if (int(val) < 21 and int(val)>3):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_7:
                                 val += str(7)
-                                if (int(val) < 21):
+                                if (int(val) < 21 and int(val)>3):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_8:
                                 val += str(8)
-                                if (int(val) < 21):
+                                if (int(val) < 21 and int(val)>3):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_9:
                                 val += str(9)
-                                if (int(val) < 21):
+                                if (int(val) < 21 and int(val)>3):
                                     draw_text(x_cord, y_cord, val)
                         if event.key == pygame.K_BACKSPACE:
                             print("blah")
@@ -495,7 +495,7 @@ def double_screen(win):
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if quit_rectangle.collidepoint(event.pos):
-                    sys.exit()
+                    draw_quit(win)
                 if exit_rectangle.collidepoint(event.pos):
                    draw_debook_opened(screen)
 
@@ -557,7 +557,7 @@ def draw_stand(win):
 
     start_title_font = pygame.font.Font(None, 75)
     button_font = pygame.font.Font(None, 50)
-    win.fill((255, 255, 240))
+    win.fill((211, 211, 211))
     win.blit(stand_screen, (100, 75))
     pygame.display.flip()
 
@@ -572,7 +572,7 @@ def draw_stand(win):
     exit_surface.blit(exit_text, (10, 10))
 
     exit_rectangle = exit_surface.get_rect(
-        center=(WIDTH // 2 -100, HEIGHT // 2 + 220))
+        center=(WIDTH // 2 -115, HEIGHT // 2 + 220))
 
     win.blit(exit_surface, exit_rectangle)
 
@@ -582,7 +582,7 @@ def draw_stand(win):
     quit_surface.blit(quit_text, (10, 10))
 
     quit_rectangle = quit_surface.get_rect(
-        center=(WIDTH // 2 + 100, HEIGHT // 2 + 220))
+        center=(WIDTH // 2 + 115, HEIGHT // 2 + 220))
     win.blit(quit_surface, quit_rectangle)
 
     pygame.display.update()
@@ -592,7 +592,7 @@ def draw_stand(win):
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if quit_rectangle.collidepoint(event.pos):
-                    sys.exit()
+                    draw_quit(win)
                 if exit_rectangle.collidepoint(event.pos):
                     draw_debook_opened(win)
 
@@ -641,7 +641,7 @@ def draw_hit(win):
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if quit_rectangle.collidepoint(event.pos):
-                    sys.exit()
+                    draw_quit(win)
                 if exit_rectangle.collidepoint(event.pos):
                     draw_debook_opened(screen)
     pass
@@ -680,7 +680,51 @@ def draw_quit(win):
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if quit_rectangle.collidepoint(event.pos):
-                    sys.exit()
+                    draw_quit(win)
+                if exit_rectangle.collidepoint(event.pos):
+                    draw_debook_opened(screen)
+
+    pass
+
+def split(win):
+    start_title_font = pygame.font.Font(None, 75)
+    button_font = pygame.font.Font(None, 50)
+    win.fill((255, 255, 240))
+    win.blit(split_pic, (0, 0))
+    pygame.display.flip()
+
+    title_surface = start_title_font.render("SPLIT THEM!!!", 0, ((255, 0, 0)))
+    title_rectangle = title_surface.get_rect(
+        center=(WIDTH // 2, HEIGHT // 2 - 150))
+    win.blit(title_surface, title_rectangle)
+
+    exit_text = button_font.render("Return", 0, (255, 255, 255))
+    exit_surface = pygame.Surface((exit_text.get_size()[0] + 20, exit_text.get_size()[1] + 20))
+    exit_surface.fill(LINE_COLOR)
+    exit_surface.blit(exit_text, (10, 10))
+
+    exit_rectangle = exit_surface.get_rect(
+        center=(WIDTH // 2 - 100, HEIGHT // 2 + 270))
+
+    win.blit(exit_surface, exit_rectangle)
+
+    quit_text = button_font.render("Quit", 0, (255, 255, 255))
+    quit_surface = pygame.Surface((quit_text.get_size()[0] + 20, quit_text.get_size()[1] + 20))
+    quit_surface.fill(LINE_COLOR)
+    quit_surface.blit(quit_text, (10, 10))
+
+    quit_rectangle = quit_surface.get_rect(
+        center=(WIDTH // 2 + 100, HEIGHT // 2 + 270))
+    win.blit(quit_surface, quit_rectangle)
+
+    pygame.display.update()
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if quit_rectangle.collidepoint(event.pos):
+                    draw_quit(win)
                 if exit_rectangle.collidepoint(event.pos):
                     draw_debook_opened(screen)
 
