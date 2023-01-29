@@ -242,7 +242,7 @@ def draw_debook_opened(win):
 
                 if submit_rectangle.collidepoint((x_cord,y_cord)):
                     sys.exit()
-
+#hi
 
 
 
