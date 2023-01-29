@@ -108,7 +108,7 @@ def draw_hit(win):
                 if quit_rectangle.collidepoint(event.pos):
                     sys.exit()
                 if exit_rectangle.collidepoint(event.pos):
-                    main()
+                    draw_debook_opened(screen)
     pass
 def draw_quit(win):
 
@@ -147,6 +147,6 @@ def draw_quit(win):
                 if quit_rectangle.collidepoint(event.pos):
                     sys.exit()
                 if exit_rectangle.collidepoint(event.pos):
-                    main()
+                    draw_debook_opened(screen)
 
     pass

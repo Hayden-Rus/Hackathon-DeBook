@@ -262,132 +262,181 @@ def draw_debook_opened(win):
                 if submit_rectangle.collidepoint((x_cord,y_cord)):
                     print(val,dealer,soft)
                      # sys.exit()
+                    val = int(val)
+                    dealer = int(dealer)
 
-                    if(val == 5,6,7,8 and dealer == 2,3,4,5,6,7,8,9,10,11):
+                    if(5<=val <=8 and 2<=dealer <= 11):
+                        print("problem1")
                         draw_hit(screen)
 
 
-                    elif(val == 9,10,11 and dealer == 2,3,4,5,6 and soft == False):
-                        double(screen)
+
+                    elif(9<= val <= 11 and 2<= dealer <= 6 and soft == False):
+                        print("problem")
+                        double_screen(screen)
 
 
-                    elif(val == 9 and dealer == 7,8,9,10,11 and soft == False):
+                    elif(val == 9 and 7<= dealer <= 11 and soft == False):
+                        print("problem3")
                         draw_hit(screen)
 
 
-                    elif(val == 10, 11 and dealer == 7,8,9 and soft == False):
-                        double(screen)
+
+                    elif(10<= val <=  11 and 7<=  dealer <= 9 and soft == False):
+                        print("problem4")
+                        double_screen(screen)
 
 
-                    elif(val == 10 and dealer == 10, 11 and soft == False):
+                    elif(val == 10 and dealer == 10 or dealer == 11 and soft == False):
+                        print("problem5")
                         draw_hit(screen)
 
 
-                    elif(val == 11 and dealer == 10, 11 and soft == False):
-                        double(screen)
 
 
-                    elif(val == 12 and dealer == 2,3 and soft == False):
+                    elif(val == 11 and dealer == 10 or dealer == 11 and soft == False):
+                        print("problem6")
+                        double_screen(screen)
+
+
+                    elif(val == 12 and dealer == 2 or dealer ==  3 and soft == False):
+                        print("problem7")
                         draw_hit(screen)
 
 
-                    elif(val == 12 and dealer == 4,5,6 and soft == False):
+
+
+                    elif(val == 12 and 4 <= dealer <= 6 and soft == False):
+                        print("problem8")
                         draw_stand(screen)
 
 
-                    elif(val == 12 and dealer == 7,8,9,10,11 and soft == False):
+                    elif(val == 12 and 7<= dealer <= 11 and soft == False):
+                        print("problem9")
                         draw_hit(screen)
 
 
-                    elif(val == 13,14,15,16 and dealer == 2,3,4,5,6 and soft == False):
+
+                    elif(13 <= val <= 16 and 2 <= dealer <= 6 and soft == False):
+                        print("problem10")
                         draw_stand(screen)
 
 
-                    elif(val == 13,14 and dealer == 7,8,9,10,11 and soft == False):
+                    elif(val == 13 or val == 14 and 7 <= dealer <= 11 and soft == False):
+                        print("problem11")
                         draw_hit(screen)
 
 
-                    elif(val == 15,16 and dealer == 7,8,9 and soft == False):
+
+                    elif(val == 15 or val == 16 and 7<= dealer <= 9 and soft == False):
+                        print("problem12")
                         draw_hit(screen)
 
 
-                    elif(val == 15, 16 and dealer == 10,11 and soft == False):
+
+                    elif(val == 15 or val == 16 and dealer == 10 or dealer == 11 and soft == False):
+                        print("problem13")
                         draw_hit(screen)
 
 
-                    elif(val == 17 and dealer == 2,3,4,5,6,7,8,9,10,11 and soft == False):
+
+                    elif(val == 17 and 2 <= dealer <= 11 and soft == False):
+                        print("problem14")
                         draw_stand(screen)
 
 
-                    elif(val == 18,19,20 and dealer == 2,3,4,5,6,7,8,9,10,11 and soft == False):
+                    elif(18 <= val <= 20 and 2 <=dealer <= 11 and soft == False):
+                        print("problem15")
                         draw_stand(screen)
 
 
-                    elif(val == 13,14,15,16 and dealer == 2,3 and soft == True):
+                    elif(13 <= val <= 16 and dealer == 2 or dealer == 3 and soft == True):
+                        print("problem16")
                         draw_hit(screen)
 
 
                     elif(val == 13 and dealer == 4 and soft == True):
+                        print("problem17")
                         draw_hit(screen)
 
 
-                    elif(val == 13 and dealer == 5,6 and soft == True):
-                        double(screen)
+                    elif(val == 13 and dealer == 5 or dealer ==  6 and soft == True):
+                        print("problem18")
+                        double_screen(screen)
 
 
-                    elif(val == 13 and dealer == 7,8,9,10,11 and soft == True):
+                    elif(val == 13 and 7 <= dealer <= 11 and soft == True):
+                        print("problem19")
                         draw_hit(screen)
 
 
-                    elif(val == 14,15,16 and dealer == 4,5,6 and soft == True):
-                        double(screen)
+
+                    elif(14 <= val <= 16 and 4<= dealer <= 6 and soft == True):
+                        print("problem20")
+                        double_screen(screen)
 
 
-                    elif(val == 14,15,16 and dealer == 7,8,9,10,11 and soft == True):
+                    elif(14 <= val <= 16 and 7<= dealer <= 11 and soft == True):
+                        print("problem21")
                         draw_hit(screen)
+
 
 
                     elif(val == 17 and dealer == 2 and soft == True):
+                        print("problem22 ")
                         draw_hit(screen)
 
 
-                    elif(val == 17 and dealer == 3,4,5,6 and soft == True):
-                        double(screen)
+
+                    elif(val == 17 and 3<= dealer <=6 and soft == True):
+                        print("problem23")
+                        double_screen(screen)
 
 
-                    elif(val == 17 and dealer == 7,8,9,10,11 and soft == True):
+                    elif(val == 17 and 7 <= dealer <= 11 and soft == True):
+                        print("problem 24")
                         draw_hit(screen)
 
 
-                    elif(val == 18 and dealer == 2,3,4,5,6 and soft == True):
-                        double(screen)
+
+                    elif(val == 18 and 2<= dealer <= 6 and soft == True):
+                        print("problem25")
+                        double_screen(screen)
 
 
-                    elif(val == 18 and dealer == 7,8 and soft == True):
+                    elif(val == 18 and dealer == 7 or  dealer == 8 and soft == True):
+                        print("problem26")
                         draw_stand(screen)
 
 
-                    elif(val == 18 and dealer == 9,10,11 and soft == True):
+                    elif(val == 18 and 9<= dealer <= 11 and soft == True):
+                        print("problem 27")
                         draw_hit(screen)
 
 
-                    elif(val == 19,20 and dealer == 2,3,4,5 and soft == True):
+
+                    elif(val == 19 or val == 20 and 2  <=dealer <= 5 and soft == True):
+                        print("problem28")
                         draw_stand(screen)
 
 
                     elif(val == 19 and dealer == 6 and soft == True):
-                        double(screen)
+                        print("problem29")
+                        double_screen(screen)
 
 
-                    elif(val == 19 and dealer == 7,8,9,10,11 and soft == True):
+                    elif(val == 19 and 7 <= dealer <= 11 and soft == True):
+                        print("problem30")
                         draw_stand(screen)
 
 
-                    elif(val == 20 and dealer == 6,7,8,9,10,11 and soft == True):
+                    elif(val == 20 and 6<= dealer <= 11 and soft == True):
+                        print("problem31")
                         draw_stand(screen)
 
 
                     else:
+                        # split(screen)
                         print("uhhh ohhhh")
 
 
@@ -445,6 +494,147 @@ def double_screen(win):
                     sys.exit()
                 if exit_rectangle.collidepoint(event.pos):
                    draw_debook_opened(screen)
+
+    pass
+stand_screen = pygame.image.load("stand.png").convert_alpha(screen)
+stand_screen = pygame.transform.scale(stand_screen,(544,544))
+
+hit_screen = pygame.image.load("muhammad-ali-sports-sport-wallpaper-preview.jpg").convert_alpha(screen)
+hit_screen = pygame.transform.scale(hit_screen,(800,600))
+
+quit_screen = pygame.image.load("k3K0WcJiY6ktXU1K6CIgXCA-M9jD3tq_Iefiw3UFGKA.jpg.jpeg").convert_alpha(screen)
+quit_screen = pygame.transform.scale(quit_screen,(800,600))
+
+def draw_stand(win):
+
+    start_title_font = pygame.font.Font(None, 75)
+    button_font = pygame.font.Font(None, 50)
+    win.fill((255, 255, 240))
+    win.blit(stand_screen, (100, 75))
+    pygame.display.flip()
+
+    title_surface = start_title_font.render("Stand, Trust Its a Facecard", 0, ((200, 0, 0)))
+    title_rectangle = title_surface.get_rect(
+        center=(WIDTH // 2 , HEIGHT // 2 - 200))
+    win.blit(title_surface, title_rectangle)
+
+    exit_text = button_font.render("Return", 0, (255, 255, 255))
+    exit_surface = pygame.Surface((exit_text.get_size()[0] + 20, exit_text.get_size()[1] + 20))
+    exit_surface.fill(LINE_COLOR)
+    exit_surface.blit(exit_text, (10, 10))
+
+    exit_rectangle = exit_surface.get_rect(
+        center=(WIDTH // 2 -100, HEIGHT // 2 + 220))
+
+    win.blit(exit_surface, exit_rectangle)
+
+    quit_text = button_font.render("Exit", 0, (255, 255, 255))
+    quit_surface = pygame.Surface((quit_text.get_size()[0] + 20, quit_text.get_size()[1] + 20))
+    quit_surface.fill(LINE_COLOR)
+    quit_surface.blit(quit_text, (10, 10))
+
+    quit_rectangle = quit_surface.get_rect(
+        center=(WIDTH // 2 + 100, HEIGHT // 2 + 220))
+    win.blit(quit_surface, quit_rectangle)
+
+    pygame.display.update()
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if quit_rectangle.collidepoint(event.pos):
+                    sys.exit()
+                if exit_rectangle.collidepoint(event.pos):
+                    draw_debook_opened(win)
+
+    pass
+def draw_hit(win):
+    start_title_font = pygame.font.Font(None, 65)
+    sub_title_font = pygame.font.Font(None, 30)
+    button_font = pygame.font.Font(None, 50)
+
+    win.blit(hit_screen, (0, 0))
+    pygame.display.flip()
+
+    title_surface = start_title_font.render("Hit, there's a 0.1% chance you bust", 0, ((200, 0, 0)))
+    title_rectangle = title_surface.get_rect(
+        center=(WIDTH // 2, HEIGHT // 2 - 250))
+    win.blit(title_surface, title_rectangle)
+
+    sub_surface = sub_title_font.render("(we are not liable for lost money :D)", 0, ((200, 0, 0)))
+    sub_rectangle = sub_surface.get_rect(
+        center=(WIDTH // 2, HEIGHT // 2 - 215))
+    win.blit(sub_surface, sub_rectangle)
+
+    exit_text = button_font.render("Return", 0, (255, 255, 255))
+    exit_surface = pygame.Surface((exit_text.get_size()[0] + 20, exit_text.get_size()[1] + 20))
+    exit_surface.fill(LINE_COLOR)
+    exit_surface.blit(exit_text, (10, 10))
+
+    exit_rectangle = exit_surface.get_rect(
+        center=(WIDTH // 2 - 100, HEIGHT // 2 + 255))
+
+    win.blit(exit_surface, exit_rectangle)
+
+    quit_text = button_font.render("Quit", 0, (255, 255, 255))
+    quit_surface = pygame.Surface((quit_text.get_size()[0] + 20, quit_text.get_size()[1] + 20))
+    quit_surface.fill(LINE_COLOR)
+    quit_surface.blit(quit_text, (10, 10))
+
+    quit_rectangle = quit_surface.get_rect(
+        center=(WIDTH // 2 + 100, HEIGHT // 2 + 255))
+    win.blit(quit_surface, quit_rectangle)
+
+    pygame.display.update()
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if quit_rectangle.collidepoint(event.pos):
+                    sys.exit()
+                if exit_rectangle.collidepoint(event.pos):
+                    draw_debook_opened(screen)
+    pass
+def draw_quit(win):
+
+    start_title_font = pygame.font.Font(None, 75)
+    button_font = pygame.font.Font(None, 50)
+    win.fill((255, 255, 240))
+    win.blit(quit_screen, (0, 0))
+    pygame.display.flip()
+
+
+    exit_text = button_font.render("Return", 0, (255, 255, 255))
+    exit_surface = pygame.Surface((exit_text.get_size()[0] + 20, exit_text.get_size()[1] + 20))
+    exit_surface.fill(LINE_COLOR)
+    exit_surface.blit(exit_text, (10, 10))
+
+    exit_rectangle = exit_surface.get_rect(
+        center=(WIDTH // 2 +225, HEIGHT // 2 + 160))
+
+    win.blit(exit_surface, exit_rectangle)
+
+    quit_text = button_font.render("Exit", 0, (255, 255, 255))
+    quit_surface = pygame.Surface((quit_text.get_size()[0] + 20, quit_text.get_size()[1] + 20))
+    quit_surface.fill(LINE_COLOR)
+    quit_surface.blit(quit_text, (10, 10))
+
+    quit_rectangle = quit_surface.get_rect(
+        center=(WIDTH // 2 +350 , HEIGHT // 2 + 160))
+    win.blit(quit_surface, quit_rectangle)
+
+    pygame.display.update()
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if quit_rectangle.collidepoint(event.pos):
+                    sys.exit()
+                if exit_rectangle.collidepoint(event.pos):
+                    draw_debook_opened(screen)
 
     pass
 
