@@ -1,8 +1,8 @@
 import pygame, sys, math
-import PygameUtils as pu
+
 
 pygame.init()
-checkb = pu.checkbox((0,255,0), 225, 535, 30, 30)
+
 screen = pygame.display.set_mode((800, 600))
 WIDTH = 800
 HEIGHT = 600
@@ -88,6 +88,7 @@ def draw_debook_opened(win):
     soft_rectangle = soft_caption.get_rect(
         center=(WIDTH // 2  -225, HEIGHT // 2 +250))
     win.blit(soft_caption, soft_rectangle)
+    hit_enter = start_title_font.render("(Hit Enter)", 0, ((0, 0,0)))
     blue_card_caption =  start_title_font.render("Dealer's Face Up:", 0, ((0, 0, 0)))
     bcaption_rectangle = blue_card_caption.get_rect(
         center=(WIDTH // 2 + 175, HEIGHT // 2 - 200))
