@@ -1,5 +1,5 @@
 import pygame, sys, math
-
+from screens import *
 
 pygame.init()
 
@@ -185,6 +185,7 @@ def draw_debook_opened(win):
                 if(550 <= x_cord <= 610 and 420 <= y_cord <= 480):
                     if event.type == pygame.KEYDOWN:
                         if len(dealer) < 2:
+
                             if event.key == pygame.K_0:
                                 dealer += str(0)
                                 if (int(dealer) < 12):
@@ -213,8 +214,8 @@ def draw_debook_opened(win):
                                     draw_text(x_cord, y_cord, dealer)
                             if event.key == pygame.K_6:
                                 dealer += str(6)
-                                if (int(val) < 12):
-                                    draw_text(x_cord, y_cord, val)
+                                if (int(dealer) < 12):
+                                    draw_text(x_cord, y_cord, dealer)
                             if event.key == pygame.K_7:
                                 dealer += str(7)
                                 if (int(dealer) < 12):
@@ -448,8 +449,11 @@ def double_screen(win):
     pass
 
 
-if __name__ == '__main__':
+def main():
     pygame.display.set_caption("Feeling Lucky?")
     draw_debook_cover(screen)
+
+if __name__ == '__main__':
+    main()
     #hehehehe
 
