@@ -15,9 +15,12 @@ blue_card = pygame.transform.scale( blue_card,(200, 250))
 
 
 def draw_text(x,y,value):
-    font = pygame.font.SysFont('arial', 25)
-    text = font.render(str(value), True, (0, 0, 0))
-    screen.blit(text, (x,y))
+    if (190 <= x <= 250 and 420 <= y <= 480):
+        font = pygame.font.SysFont('arial', 25)
+        text = font.render(str(value), True, (0, 0, 0))
+        screen.blit(text, (205,440))
+    else:
+        pass
     pygame.display.update()
 def clear(x,y):
     if(190 <= x <= 250 and 420 <= y <= 480):
