@@ -264,8 +264,9 @@ def draw_debook_opened(win):
                      # sys.exit()
                     val = int(val)
                     dealer = int(dealer)
-
-                    if(5<=val <=8 and 2<=dealer <= 11):
+                    if(val == 12 and soft == True):
+                        split(screen)
+                    elif(5<=val <=8 and 2<=dealer <= 11):
                         print("problem1")
                         draw_hit(screen)
 
@@ -404,7 +405,7 @@ def draw_debook_opened(win):
                         double_screen(screen)
 
 
-                    elif(val == 18 and dealer == 7 or  dealer == 8 and soft == True):
+                    elif(val == 18 and (dealer == 7 or  dealer == 8) and soft == True):
                         print("problem26")
                         draw_stand(screen)
 
@@ -436,8 +437,8 @@ def draw_debook_opened(win):
 
 
                     else:
-                        # split(screen)
-                        print("uhhh ohhhh")
+                        split(screen)
+
 
 
 
@@ -499,10 +500,10 @@ def double_screen(win):
 stand_screen = pygame.image.load("stand.png").convert_alpha(screen)
 stand_screen = pygame.transform.scale(stand_screen,(544,544))
 
-hit_screen = pygame.image.load("muhammad-ali-sports-sport-wallpaper-preview.jpg").convert_alpha(screen)
+hit_screen = pygame.image.load("Hit.jpg").convert_alpha(screen)
 hit_screen = pygame.transform.scale(hit_screen,(800,600))
 
-quit_screen = pygame.image.load("k3K0WcJiY6ktXU1K6CIgXCA-M9jD3tq_Iefiw3UFGKA.jpg.jpeg").convert_alpha(screen)
+quit_screen = pygame.image.load("Quit.jpeg").convert_alpha(screen)
 quit_screen = pygame.transform.scale(quit_screen,(800,600))
 
 def draw_stand(win):
