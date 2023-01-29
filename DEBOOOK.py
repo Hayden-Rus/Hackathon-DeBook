@@ -14,7 +14,11 @@ red_card = pygame.image.load('Player Card.jpg')
 red_card = pygame.transform.scale(red_card,(200, 250))
 blue_card = pygame.image.load('Dealers Card.jpg')
 blue_card = pygame.transform.scale( blue_card,(200, 250))
-main = False
+double_pic = pygame.image.load('Double.jpg').convert_alpha(screen)
+double_pic = pygame.transform.scale(double_pic,(800, 600))
+split_pic = pygame.image.load('Split.jpg').convert_alpha(screen)
+split_pic = pygame.transform.scale(split_pic,(800, 600))
+
 
 
 def draw_text(x,y,value):
@@ -77,6 +81,7 @@ def draw_debook_opened(win):
     y_cord = None
     start_title_font = pygame.font.Font(None, 50)
     button_font = pygame.font.Font(None, 40)
+    instruction_font = pygame.font.Font(None, 20)
     win.blit(debook_open, (-80, -55))
     win.blit(red_card, (125, 150))
 
@@ -88,7 +93,10 @@ def draw_debook_opened(win):
     soft_rectangle = soft_caption.get_rect(
         center=(WIDTH // 2  -225, HEIGHT // 2 +250))
     win.blit(soft_caption, soft_rectangle)
-    hit_enter = start_title_font.render("(Hit Enter)", 0, ((0, 0,0)))
+    hit_enter = instruction_font.render("(Click And Hit Enter)", 0, ((0, 0,0)))
+    hit_enter_rectangle = hit_enter.get_rect(
+        center=(WIDTH // 2  -200, HEIGHT // 2 +280))
+    win.blit(hit_enter, hit_enter_rectangle)
     blue_card_caption =  start_title_font.render("Dealer's Face Up:", 0, ((0, 0, 0)))
     bcaption_rectangle = blue_card_caption.get_rect(
         center=(WIDTH // 2 + 175, HEIGHT // 2 - 200))
@@ -253,10 +261,99 @@ def draw_debook_opened(win):
                      # sys.exit()
 
 
+def double_screen(win):
+    start_title_font = pygame.font.Font(None, 75)
+    button_font = pygame.font.Font(None, 50)
+    win.fill((255, 255, 240))
+    win.blit(double_pic, (0, 0))
+    pygame.display.flip()
 
+    title_surface = start_title_font.render("You know you gotta Double it!!", 0, ((255,255,0)))
+    title_rectangle = title_surface.get_rect(
+        center=(WIDTH // 2, HEIGHT // 2 + 80))
+    win.blit(title_surface, title_rectangle)
+
+    exit_text = button_font.render("Return", 0, (255, 255, 255))
+    exit_surface = pygame.Surface((exit_text.get_size()[0] + 20, exit_text.get_size()[1] + 20))
+    exit_surface.fill(LINE_COLOR)
+    exit_surface.blit(exit_text, (10, 10))
+
+    exit_rectangle = exit_surface.get_rect(
+        center=(WIDTH // 2 - 100, HEIGHT // 2 + 270))
+
+    win.blit(exit_surface, exit_rectangle)
+
+    quit_text = button_font.render("Quit", 0, (255, 255, 255))
+    quit_surface = pygame.Surface((quit_text.get_size()[0] + 20, quit_text.get_size()[1] + 20))
+    quit_surface.fill(LINE_COLOR)
+    quit_surface.blit(quit_text, (10, 10))
+
+    quit_rectangle = quit_surface.get_rect(
+        center=(WIDTH // 2 + 100, HEIGHT // 2 + 270))
+    win.blit(quit_surface, quit_rectangle)
+
+    pygame.display.update()
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if quit_rectangle.collidepoint(event.pos):
+                    sys.exit()
+                if exit_rectangle.collidepoint(event.pos):
+                   draw_debook_opened(screen)
+
+    pass
+
+
+def split(win):
+    start_title_font = pygame.font.Font(None, 75)
+    button_font = pygame.font.Font(None, 50)
+    win.fill((255, 255, 240))
+    win.blit(split_pic, (0, 0))
+    pygame.display.flip()
+
+    title_surface = start_title_font.render("SPLIT THEM!!!", 0, ((255, 0, 0)))
+    title_rectangle = title_surface.get_rect(
+        center=(WIDTH // 2, HEIGHT // 2 - 150))
+    win.blit(title_surface, title_rectangle)
+
+    exit_text = button_font.render("Return", 0, (255, 255, 255))
+    exit_surface = pygame.Surface((exit_text.get_size()[0] + 20, exit_text.get_size()[1] + 20))
+    exit_surface.fill(LINE_COLOR)
+    exit_surface.blit(exit_text, (10, 10))
+
+    exit_rectangle = exit_surface.get_rect(
+        center=(WIDTH // 2 - 100, HEIGHT // 2 + 270))
+
+    win.blit(exit_surface, exit_rectangle)
+
+    quit_text = button_font.render("Quit", 0, (255, 255, 255))
+    quit_surface = pygame.Surface((quit_text.get_size()[0] + 20, quit_text.get_size()[1] + 20))
+    quit_surface.fill(LINE_COLOR)
+    quit_surface.blit(quit_text, (10, 10))
+
+    quit_rectangle = quit_surface.get_rect(
+        center=(WIDTH // 2 + 100, HEIGHT // 2 + 270))
+    win.blit(quit_surface, quit_rectangle)
+
+    pygame.display.update()
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if quit_rectangle.collidepoint(event.pos):
+                    sys.exit()
+                if exit_rectangle.collidepoint(event.pos):
+                    draw_debook_opened(screen)
+
+    pass
 
 
 if __name__ == '__main__':
     pygame.display.set_caption("Feeling Lucky?")
-    draw_debook_cover(screen)
-    #sammy hii
+    #draw_debook_cover(screen)
+     #sammy hii
+    #double_screen(screen)
+    split(screen)
