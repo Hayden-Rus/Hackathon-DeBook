@@ -335,7 +335,7 @@ def draw_debook_opened(win):
 
 
 
-                    elif(val == 15 or val == 16 and dealer == 10 or dealer == 11 and soft == False):
+                    elif((val == 15) or (val == 16) and dealer == 10 or dealer == 11 and soft == False):
                         print("problem13")
                         draw_hit(screen)
 
@@ -510,8 +510,8 @@ def draw_stand(win):
 
     start_title_font = pygame.font.Font(None, 75)
     button_font = pygame.font.Font(None, 50)
-    win.fill((255, 255, 240))
-    win.blit(stand_screen, (100, 75))
+    win.fill((211, 211, 211))
+    win.blit(stand_screen, (110, 75))
     pygame.display.flip()
 
     title_surface = start_title_font.render("Stand, Trust Its a Facecard", 0, ((200, 0, 0)))
@@ -525,7 +525,7 @@ def draw_stand(win):
     exit_surface.blit(exit_text, (10, 10))
 
     exit_rectangle = exit_surface.get_rect(
-        center=(WIDTH // 2 -100, HEIGHT // 2 + 220))
+        center=(WIDTH // 2 -150, HEIGHT // 2 + 220))
 
     win.blit(exit_surface, exit_rectangle)
 
@@ -535,7 +535,7 @@ def draw_stand(win):
     quit_surface.blit(quit_text, (10, 10))
 
     quit_rectangle = quit_surface.get_rect(
-        center=(WIDTH // 2 + 100, HEIGHT // 2 + 220))
+        center=(WIDTH // 2 + 150, HEIGHT // 2 + 220))
     win.blit(quit_surface, quit_rectangle)
 
     pygame.display.update()
