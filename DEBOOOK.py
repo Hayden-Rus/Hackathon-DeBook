@@ -250,4 +250,4 @@ def draw_debook_opened(win):
 if __name__ == '__main__':
     pygame.display.set_caption("Feeling Lucky?")
     draw_debook_cover(screen)
-    #sammy
+    #sammy hii
