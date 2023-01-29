@@ -60,10 +60,11 @@ def draw_debook_cover(win):
                  draw_debook_opened(screen)
 
 
-def rectangle(x,y):
-    pygame.draw.rect(screen, (0,0,0), pygame.Rect(x-4, y-4, 68, 68))
-    pygame.draw.rect(screen, (255,255,240), pygame.Rect(x, y, 60, 60))
+def rectangle(x,y,size):
+    pygame.draw.rect(screen, (0,0,0), pygame.Rect(x-(size*.055), y-(size*.055), size*1.133, size*1.133))
+    pygame.draw.rect(screen, (255,255,240), pygame.Rect(x, y, size, size))
 def draw_debook_opened(win):
+    soft = False
     x_cord = None
     y_cord = None
     start_title_font = pygame.font.Font(None, 50)
@@ -75,6 +76,10 @@ def draw_debook_opened(win):
     rcaption_rectangle = red_card_caption.get_rect(
         center=(WIDTH // 2 - 167, HEIGHT // 2 -200))
     win.blit(red_card_caption, rcaption_rectangle)
+    soft_caption = start_title_font.render("Soft", 0, ((255, 0, 0)))
+    soft_rectangle = soft_caption.get_rect(
+        center=(WIDTH // 2  -225, HEIGHT // 2 +250))
+    win.blit(soft_caption, soft_rectangle)
     blue_card_caption =  start_title_font.render("Dealer's Face Up:", 0, ((0, 0, 0)))
     bcaption_rectangle = blue_card_caption.get_rect(
         center=(WIDTH // 2 + 175, HEIGHT // 2 - 200))
@@ -94,8 +99,9 @@ def draw_debook_opened(win):
 
     submit_rectangle = submit_surface.get_rect(
         center=(WIDTH // 2 + 260, HEIGHT // 2 + 265))
-    rectangle(190,420)
-    rectangle(550, 420)
+    rectangle(190,420,60)
+    rectangle(550, 420,60)
+    rectangle(225, 535,30)
     win.blit(submit_surface, submit_rectangle)
 
     pygame.display.update()
@@ -125,6 +131,8 @@ def draw_debook_opened(win):
                                 val += str(2)
                                 if (int(val) < 21):
                                     draw_text(x_cord, y_cord, val)
+                                else:
+                                    break
                             if event.key == pygame.K_3:
                                 val += str(3)
                                 if (int(val) < 21):
@@ -157,7 +165,16 @@ def draw_debook_opened(win):
                             print("blah")
                             val = ""
                             clear(x_cord,y_cord)
-
+                if(224<=x_cord <= 254 and 535 <=y_cord <=565):
+                    if(soft):
+                        soft = False
+                    else:
+                        soft = True
+                    if(soft):
+                        pygame.draw.rect(screen, (0, 255, 0), pygame.Rect(225, 535, 30, 30))
+                    else:
+                        rectangle(225, 535, 30)
+                    pygame.display.update()
                 if submit_rectangle.collidepoint((x_cord,y_cord)):
                     sys.exit()
 
