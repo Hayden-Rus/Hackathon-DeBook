@@ -1,5 +1,8 @@
 import pygame, sys, math
+import PygameUtils as pu
+
 pygame.init()
+checkb = pu.checkbox((0,255,0), 225, 535, 30, 30)
 screen = pygame.display.set_mode((800, 600))
 WIDTH = 800
 HEIGHT = 600
@@ -12,7 +15,6 @@ red_card = pygame.transform.scale(red_card,(200, 250))
 blue_card = pygame.image.load('Dealers Card.jpg')
 blue_card = pygame.transform.scale( blue_card,(200, 250))
 main = False
-
 
 
 def draw_text(x,y,value):
@@ -222,18 +224,25 @@ def draw_debook_opened(win):
                             dealer = ""
                             clear(x_cord,y_cord)
 
-                if(224<=x_cord <= 254 and 535 <=y_cord <=565):
-                    # if soft == True:
-                    #     soft = False
-                    # else
-                    #     soft = True
-                    soft = 1- soft
-                    if(soft == 1):
-                        pygame.draw.rect(screen, (0, 255, 0), pygame.Rect(225, 535, 30, 30))
-                        pygame.display.update()
-                    else:
-                        pygame.draw.rect(screen, (255, 255, 240), pygame.Rect(225, 535, 30, 30))
-                        pygame.display.update()
+                if(224 <= x_cord <= 254 and 535 <= y_cord <= 565):
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_RETURN:
+                            print("works")
+
+                            soft = 1- soft
+                            print(soft)
+                            if soft == 1:
+
+                                pygame.draw.rect(screen, (0, 255, 0), pygame.Rect(224, 535, 30, 30))
+                                pygame.display.update()
+                            else:
+                                pygame.draw.rect(screen, (255, 255, 240), pygame.Rect(224, 535, 30, 30))
+                                pygame.display.update()
+
+
+                    #(screen, (255, 255, 240), pygame.Rect(225, 535, 30, 30))
+                    #
+
 
 
 
@@ -241,7 +250,7 @@ def draw_debook_opened(win):
 
 
                 if submit_rectangle.collidepoint((x_cord,y_cord)):
-                    sys.exit()
+                     sys.exit()
 
 
 
