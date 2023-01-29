@@ -19,7 +19,7 @@ double_pic = pygame.transform.scale(double_pic,(800, 600))
 split_pic = pygame.image.load('Split.jpg').convert_alpha(screen)
 split_pic = pygame.transform.scale(split_pic,(800, 600))
 
-
+count = 0
 
 def draw_text(x,y,value):
     if (190 <= x <= 250 and 420 <= y <= 480):
@@ -495,7 +495,7 @@ def double_screen(win):
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if quit_rectangle.collidepoint(event.pos):
-                    draw_quit(win)
+                    draw_quit(win,count)
                 if exit_rectangle.collidepoint(event.pos):
                    draw_debook_opened(screen)
 
@@ -558,7 +558,7 @@ def draw_stand(win):
     start_title_font = pygame.font.Font(None, 75)
     button_font = pygame.font.Font(None, 50)
     win.fill((211, 211, 211))
-    win.blit(stand_screen, (100, 75))
+    win.blit(stand_screen, (118, 70))
     pygame.display.flip()
 
     title_surface = start_title_font.render("Stand, Trust Its a Facecard", 0, ((200, 0, 0)))
@@ -572,7 +572,7 @@ def draw_stand(win):
     exit_surface.blit(exit_text, (10, 10))
 
     exit_rectangle = exit_surface.get_rect(
-        center=(WIDTH // 2 -115, HEIGHT // 2 + 220))
+        center=(WIDTH // 2 -120, HEIGHT // 2 + 220))
 
     win.blit(exit_surface, exit_rectangle)
 
@@ -582,7 +582,7 @@ def draw_stand(win):
     quit_surface.blit(quit_text, (10, 10))
 
     quit_rectangle = quit_surface.get_rect(
-        center=(WIDTH // 2 + 115, HEIGHT // 2 + 220))
+        center=(WIDTH // 2 + 120, HEIGHT // 2 + 220))
     win.blit(quit_surface, quit_rectangle)
 
     pygame.display.update()
@@ -592,7 +592,7 @@ def draw_stand(win):
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if quit_rectangle.collidepoint(event.pos):
-                    draw_quit(win)
+                    draw_quit(win,count)
                 if exit_rectangle.collidepoint(event.pos):
                     draw_debook_opened(win)
 
@@ -641,11 +641,11 @@ def draw_hit(win):
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if quit_rectangle.collidepoint(event.pos):
-                    draw_quit(win)
+                    draw_quit(win,count)
                 if exit_rectangle.collidepoint(event.pos):
                     draw_debook_opened(screen)
     pass
-def draw_quit(win):
+def draw_quit(win,count):
 
     start_title_font = pygame.font.Font(None, 75)
     button_font = pygame.font.Font(None, 50)
@@ -680,7 +680,11 @@ def draw_quit(win):
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if quit_rectangle.collidepoint(event.pos):
-                    draw_quit(win)
+                    count += 1
+                    if(count != 100):
+                        draw_quit(win,count)
+                    else:
+                        sys.exit()
                 if exit_rectangle.collidepoint(event.pos):
                     draw_debook_opened(screen)
 
