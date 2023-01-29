@@ -227,13 +227,11 @@ def draw_debook_opened(win):
                 if(224 <= x_cord <= 254 and 535 <= y_cord <= 565):
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_RETURN:
-                            print("works")
-
                             soft = 1- soft
                             print(soft)
                             if soft == 1:
 
-                                pygame.draw.rect(screen, (0, 255, 0), pygame.Rect(224, 535, 30, 30))
+                                pygame.draw.rect(screen, (0, 0, 0), pygame.Rect(232, 543, 15, 15))
                                 pygame.display.update()
                             else:
                                 pygame.draw.rect(screen, (255, 255, 240), pygame.Rect(224, 535, 30, 30))
@@ -250,7 +248,8 @@ def draw_debook_opened(win):
 
 
                 if submit_rectangle.collidepoint((x_cord,y_cord)):
-                     sys.exit()
+                    print(val,dealer,soft)
+                     # sys.exit()
 
 
 
