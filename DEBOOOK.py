@@ -687,6 +687,7 @@ def draw_quit(win,count):
                         sys.exit()
                 if exit_rectangle.collidepoint(event.pos):
                     draw_debook_opened(screen)
+                    #hi
 
     pass
 
