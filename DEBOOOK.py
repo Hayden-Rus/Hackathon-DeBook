@@ -11,6 +11,7 @@ red_card = pygame.image.load('Player Card.jpg')
 red_card = pygame.transform.scale(red_card,(200, 250))
 blue_card = pygame.image.load('Dealers Card.jpg')
 blue_card = pygame.transform.scale( blue_card,(200, 250))
+main = False
 
 
 
@@ -20,13 +21,15 @@ def draw_text(x,y,value):
         text = font.render(str(value), True, (0, 0, 0))
         screen.blit(text, (205,440))
     else:
-        pass
+        font = pygame.font.SysFont('arial', 25)
+        text = font.render(str(value), True, (0, 0, 0))
+        screen.blit(text, (565, 440))
     pygame.display.update()
 def clear(x,y):
     if(190 <= x <= 250 and 420 <= y <= 480):
-        rectangle(190, 420)
+        rectangle(190, 420,60)
     else:
-        rectangle(550, 420)
+        rectangle(550, 420,60)
     pygame.display.update()
 
 def draw_debook_cover(win):
@@ -67,7 +70,7 @@ def rectangle(x,y,size):
     pygame.draw.rect(screen, (0,0,0), pygame.Rect(x-(size*.055), y-(size*.055), size*1.133, size*1.133))
     pygame.draw.rect(screen, (255,255,240), pygame.Rect(x, y, size, size))
 def draw_debook_opened(win):
-    soft = False
+    soft = 0
     x_cord = None
     y_cord = None
     start_title_font = pygame.font.Font(None, 50)
@@ -109,6 +112,7 @@ def draw_debook_opened(win):
 
     pygame.display.update()
     val = ""
+    dealer = ""
     while True:
 
 
@@ -119,7 +123,7 @@ def draw_debook_opened(win):
                 x_cord, y_cord = event.pos
                 print(x_cord, y_cord)
             if(x_cord != None):
-                if ((190 <= x_cord <= 250 and 420 <= y_cord <= 480) or (550 <= x_cord <= 610 and 420 <= y_cord <= 480)):
+                if ((190 <= x_cord <= 250 and 420 <= y_cord <= 480)):
                     if event.type == pygame.KEYDOWN:
                         if len(val) < 2:
                             if event.key == pygame.K_0:
@@ -168,16 +172,74 @@ def draw_debook_opened(win):
                             print("blah")
                             val = ""
                             clear(x_cord,y_cord)
+                if(550 <= x_cord <= 610 and 420 <= y_cord <= 480):
+                    if event.type == pygame.KEYDOWN:
+                        if len(dealer) < 2:
+                            if event.key == pygame.K_0:
+                                dealer += str(0)
+                                if (int(dealer) < 12):
+                                    draw_text(x_cord, y_cord, dealer)
+                            if event.key == pygame.K_1:
+                                dealer += str(1)
+                                if (int(dealer) < 12):
+                                    draw_text(x_cord, y_cord, dealer)
+                            if event.key == pygame.K_2:
+                                dealer += str(2)
+                                if (int(dealer) < 12):
+                                    draw_text(x_cord, y_cord, dealer)
+                                else:
+                                    break
+                            if event.key == pygame.K_3:
+                                dealer += str(3)
+                                if (int(dealer) < 12):
+                                    draw_text(x_cord, y_cord, dealer)
+                            if event.key == pygame.K_4:
+                                dealer += str(4)
+                                if (int(dealer) < 12):
+                                    draw_text(x_cord, y_cord, dealer)
+                            if event.key == pygame.K_5:
+                                dealer += str(5)
+                                if (int(dealer) < 12):
+                                    draw_text(x_cord, y_cord, dealer)
+                            if event.key == pygame.K_6:
+                                dealer += str(6)
+                                if (int(val) < 12):
+                                    draw_text(x_cord, y_cord, val)
+                            if event.key == pygame.K_7:
+                                dealer += str(7)
+                                if (int(dealer) < 12):
+                                    draw_text(x_cord, y_cord, dealer)
+                            if event.key == pygame.K_8:
+                                dealer += str(8)
+                                if (int(dealer) < 12):
+                                    draw_text(x_cord, y_cord, dealer)
+                            if event.key == pygame.K_9:
+                                dealer += str(9)
+                                if (int(dealer) < 12):
+                                    draw_text(x_cord, y_cord, dealer)
+                        if event.key == pygame.K_BACKSPACE:
+                            print("blah")
+                            dealer = ""
+                            clear(x_cord,y_cord)
+
                 if(224<=x_cord <= 254 and 535 <=y_cord <=565):
-                    if(soft):
-                        soft = False
-                    else:
-                        soft = True
-                    if(soft):
+                    # if soft == True:
+                    #     soft = False
+                    # else
+                    #     soft = True
+                    soft = 1- soft
+                    if(soft == 1):
                         pygame.draw.rect(screen, (0, 255, 0), pygame.Rect(225, 535, 30, 30))
+                        pygame.display.update()
                     else:
-                        rectangle(225, 535, 30)
-                    pygame.display.update()
+                        pygame.draw.rect(screen, (255, 255, 240), pygame.Rect(225, 535, 30, 30))
+                        pygame.display.update()
+
+
+
+
+
+
                 if submit_rectangle.collidepoint((x_cord,y_cord)):
                     sys.exit()
 
