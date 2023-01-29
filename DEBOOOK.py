@@ -72,7 +72,7 @@ def rectangle(x,y,size):
     pygame.draw.rect(screen, (0,0,0), pygame.Rect(x-(size*.055), y-(size*.055), size*1.133, size*1.133))
     pygame.draw.rect(screen, (255,255,240), pygame.Rect(x, y, size, size))
 def draw_debook_opened(win):
-    soft = 0
+    soft = False
     x_cord = None
     y_cord = None
     start_title_font = pygame.font.Font(None, 50)
@@ -228,9 +228,12 @@ def draw_debook_opened(win):
                 if(224 <= x_cord <= 254 and 535 <= y_cord <= 565):
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_RETURN:
-                            soft = 1- soft
+                            if(soft):
+                                soft = False
+                            else:
+                                soft = True
                             print(soft)
-                            if soft == 1:
+                            if soft == True:
 
                                 pygame.draw.rect(screen, (0, 0, 0), pygame.Rect(232, 543, 15, 15))
                                 pygame.display.update()
@@ -251,6 +254,146 @@ def draw_debook_opened(win):
                 if submit_rectangle.collidepoint((x_cord,y_cord)):
                     print(val,dealer,soft)
                      # sys.exit()
+
+                    if(val == 5,6,7,8 and dealer == 2,3,4,5,6,7,8,9,10,11):
+                        draw_hit(screen)
+
+
+                    elif(val == 9,10,11 and dealer == 2,3,4,5,6 and soft == False):
+                        double(screen)
+
+
+                    elif(val == 9 and dealer == 7,8,9,10,11 and soft == False):
+                        draw_hit(screen)
+
+
+                    elif(val == 10, 11 and dealer == 7,8,9 and soft == False):
+                        double(screen)
+
+
+                    elif(val == 10 and dealer == 10, 11 and soft == False):
+                        draw_hit(screen)
+
+
+                    elif(val == 11 and dealer == 10, 11 and soft == False):
+                        double(screen)
+
+
+                    elif(val == 12 and dealer == 2,3 and soft == False):
+                        draw_hit(screen)
+
+
+                    elif(val == 12 and dealer == 4,5,6 and soft == False):
+                        draw_stand(screen)
+
+
+                    elif(val == 12 and dealer == 7,8,9,10,11 and soft == False):
+                        draw_hit(screen)
+
+
+                    elif(val == 13,14,15,16 and dealer == 2,3,4,5,6 and soft == False):
+                        draw_stand(screen)
+
+
+                    elif(val == 13,14 and dealer == 7,8,9,10,11 and soft == False):
+                        draw_hit(screen)
+
+
+                    elif(val == 15,16 and dealer == 7,8,9 and soft == False):
+                        draw_hit(screen)
+
+
+                    elif(val == 15, 16 and dealer == 10,11 and soft == False):
+                        draw_hit(screen)
+
+
+                    elif(val == 17 and dealer == 2,3,4,5,6,7,8,9,10,11 and soft == False):
+                        draw_stand(screen)
+
+
+                    elif(val == 18,19,20 and dealer == 2,3,4,5,6,7,8,9,10,11 and soft == False):
+                        draw_stand(screen)
+
+
+                    elif(val == 13,14,15,16 and dealer == 2,3 and soft == True):
+                        draw_hit(screen)
+
+
+                    elif(val == 13 and dealer == 4 and soft == True):
+                        draw_hit(screen)
+
+
+                    elif(val == 13 and dealer == 5,6 and soft == True):
+                        double(screen)
+
+
+                    elif(val == 13 and dealer == 7,8,9,10,11 and soft == True):
+                        draw_hit(screen)
+
+
+                    elif(val == 14,15,16 and dealer == 4,5,6 and soft == True):
+                        double(screen)
+
+
+                    elif(val == 14,15,16 and dealer == 7,8,9,10,11 and soft == True):
+                        draw_hit(screen)
+
+
+                    elif(val == 17 and dealer == 2 and soft == True):
+                        draw_hit(screen)
+
+
+                    elif(val == 17 and dealer == 3,4,5,6 and soft == True):
+                        double(screen)
+
+
+                    elif(val == 17 and dealer == 7,8,9,10,11 and soft == True):
+                        draw_hit(screen)
+
+
+                    elif(val == 18 and dealer == 2,3,4,5,6 and soft == True):
+                        double(screen)
+
+
+                    elif(val == 18 and dealer == 7,8 and soft == True):
+                        draw_stand(screen)
+
+
+                    elif(val == 18 and dealer == 9,10,11 and soft == True):
+                        draw_hit(screen)
+
+
+                    elif(val == 19,20 and dealer == 2,3,4,5 and soft == True):
+                        draw_stand(screen)
+
+
+                    elif(val == 19 and dealer == 6 and soft == True):
+                        double(screen)
+
+
+                    elif(val == 19 and dealer == 7,8,9,10,11 and soft == True):
+                        draw_stand(screen)
+
+
+                    elif(val == 20 and dealer == 6,7,8,9,10,11 and soft == True):
+                        draw_stand(screen)
+
+
+                    else:
+                        print("uhhh ohhhh")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
