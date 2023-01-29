@@ -11,6 +11,21 @@ red_card = pygame.image.load('Player Card.jpg')
 red_card = pygame.transform.scale(red_card,(200, 250))
 blue_card = pygame.image.load('Dealers Card.jpg')
 blue_card = pygame.transform.scale( blue_card,(200, 250))
+
+
+
+def draw_text(x,y,value):
+    font = pygame.font.SysFont('arial', 25)
+    text = font.render(str(value), True, (0, 0, 0))
+    screen.blit(text, (x,y))
+    pygame.display.update()
+def clear(x,y):
+    if(190 <= x <= 250 and 420 <= y <= 480):
+        rectangle(190, 420)
+    else:
+        rectangle(550, 420)
+    pygame.display.update()
+
 def draw_debook_cover(win):
     start_title_font = pygame.font.Font(None, 75)
     button_font = pygame.font.Font(None, 50)
@@ -49,6 +64,8 @@ def rectangle(x,y):
     pygame.draw.rect(screen, (0,0,0), pygame.Rect(x-4, y-4, 68, 68))
     pygame.draw.rect(screen, (255,255,240), pygame.Rect(x, y, 60, 60))
 def draw_debook_opened(win):
+    x_cord = None
+    y_cord = None
     start_title_font = pygame.font.Font(None, 50)
     button_font = pygame.font.Font(None, 40)
     win.blit(debook_open, (-80, -55))
@@ -82,15 +99,69 @@ def draw_debook_opened(win):
     win.blit(submit_surface, submit_rectangle)
 
     pygame.display.update()
+    val = ""
     while True:
+
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x_cord, y_cord = event.pos
                 print(x_cord, y_cord)
-                if submit_rectangle.collidepoint(event.pos):
+            if(x_cord != None):
+                if ((190 <= x_cord <= 250 and 420 <= y_cord <= 480) or (550 <= x_cord <= 610 and 420 <= y_cord <= 480)):
+                    if event.type == pygame.KEYDOWN:
+                        if len(val) < 2:
+                            if event.key == pygame.K_0:
+                                val += str(0)
+                                if (int(val) < 21):
+                                    draw_text(x_cord, y_cord, val)
+                            if event.key == pygame.K_1:
+                                val += str(1)
+                                if (int(val) < 21):
+                                    draw_text(x_cord, y_cord, val)
+                            if event.key == pygame.K_2:
+                                val += str(2)
+                                if (int(val) < 21):
+                                    draw_text(x_cord, y_cord, val)
+                            if event.key == pygame.K_3:
+                                val += str(3)
+                                if (int(val) < 21):
+                                    draw_text(x_cord, y_cord, val)
+                            if event.key == pygame.K_4:
+                                val += str(4)
+                                if (int(val) < 21):
+                                    draw_text(x_cord, y_cord, val)
+                            if event.key == pygame.K_5:
+                                val += str(5)
+                                if (int(val) < 21):
+                                    draw_text(x_cord, y_cord, val)
+                            if event.key == pygame.K_6:
+                                val += str(6)
+                                if (int(val) < 21):
+                                    draw_text(x_cord, y_cord, val)
+                            if event.key == pygame.K_7:
+                                val += str(7)
+                                if (int(val) < 21):
+                                    draw_text(x_cord, y_cord, val)
+                            if event.key == pygame.K_8:
+                                val += str(8)
+                                if (int(val) < 21):
+                                    draw_text(x_cord, y_cord, val)
+                            if event.key == pygame.K_9:
+                                val += str(9)
+                                if (int(val) < 21):
+                                    draw_text(x_cord, y_cord, val)
+                        if event.key == pygame.K_BACKSPACE:
+                            print("blah")
+                            val = ""
+                            clear(x_cord,y_cord)
+
+                if submit_rectangle.collidepoint((x_cord,y_cord)):
                     sys.exit()
+
+
 
 
 
