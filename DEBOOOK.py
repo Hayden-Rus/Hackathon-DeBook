@@ -132,7 +132,7 @@ def draw_debook_opened(win):
                sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x_cord, y_cord = event.pos
-                print(x_cord, y_cord)
+
             if(x_cord != None):
                 if ((190 <= x_cord <= 250 and 420 <= y_cord <= 480)):
                     if event.type == pygame.KEYDOWN:
@@ -180,7 +180,7 @@ def draw_debook_opened(win):
                                 if (int(val) < 21):
                                     draw_text(x_cord, y_cord, val)
                         if event.key == pygame.K_BACKSPACE:
-                            print("blah")
+
                             val = ""
                             clear(x_cord,y_cord)
                 if(550 <= x_cord <= 610 and 420 <= y_cord <= 480):
@@ -230,7 +230,7 @@ def draw_debook_opened(win):
                                 if (int(dealer) < 12):
                                     draw_text(x_cord, y_cord, dealer)
                         if event.key == pygame.K_BACKSPACE:
-                            print("blah")
+
                             dealer = ""
                             clear(x_cord,y_cord)
 
@@ -241,7 +241,7 @@ def draw_debook_opened(win):
                                 soft = False
                             else:
                                 soft = True
-                            print(soft)
+
                             if soft == True:
 
                                 pygame.draw.rect(screen, (0, 0, 0), pygame.Rect(232, 543, 15, 15))
@@ -261,7 +261,7 @@ def draw_debook_opened(win):
 
 
                 if submit_rectangle.collidepoint((x_cord,y_cord)):
-                    print(val,dealer,soft)
+
                      # sys.exit()
                     val = int(val)
                     dealer = int(dealer)
@@ -270,172 +270,172 @@ def draw_debook_opened(win):
                     elif val < 5:
                         draw_hit(screen)
                     elif((5<=val <=8) and (2<=dealer <= 11)):
-                        print("problem1")
+
                         draw_hit(screen)
 
 
 
                     elif((9<= val <= 11) and (2<= dealer <= 6) and (soft == False)):
-                        print("problem")
+
                         double_screen(screen)
 
 
                     elif((val == 9) and (7<= dealer <= 11) and (soft == False)):
-                        print("problem3")
+
                         draw_hit(screen)
 
 
 
                     elif((10<= val <=  11) and (7<=  dealer <= 9) and (soft == False)):
-                        print("problem4")
+
                         double_screen(screen)
 
 
                     elif((val == 10) and (dealer == 10 or dealer == 11) and (soft == False)):
-                        print("problem5")
+
                         draw_hit(screen)
 
 
 
 
                     elif((val == 11) and (dealer == 10 or dealer == 11) and (soft == False)):
-                        print("problem6")
+
                         double_screen(screen)
 
 
                     elif((val == 12) and (dealer == 2 or dealer ==  3) and (soft == False)):
-                        print("problem7")
+
                         draw_hit(screen)
 
 
 
 
                     elif((val == 12) and (4 <= dealer <= 6) and (soft == False)):
-                        print("problem8")
+
                         draw_stand(screen)
 
 
                     elif((val == 12) and (7<= dealer <= 11) and (soft == False)):
-                        print("problem9")
+
                         draw_hit(screen)
 
 
 
                     elif((13 <= val <= 16) and (2 <= dealer <= 6) and (soft == False)):
-                        print("problem10")
+
                         draw_stand(screen)
 
 
                     elif((val == 13 or val == 14) and (7 <= dealer <= 11) and (soft == False)):
-                        print("problem11")
+
                         draw_hit(screen)
 
 
 
                     elif((val == 15 or val == 16) and (7<= dealer <= 9) and (soft == False)):
-                        print("problem12")
+
                         draw_hit(screen)
 
 
 
                     elif((val == 15 or val == 16) and (dealer == 10 or dealer == 11) and (soft == False)):
-                        print("problem13")
+
                         draw_hit(screen)
 
 
 
                     elif((val == 17) and (2 <= dealer <= 11) and (soft == False)):
-                        print("problem14")
+
                         draw_stand(screen)
 
 
                     elif((18 <= val <= 20) and (2 <=dealer <= 11) and (soft == False)):
-                        print("problem15")
+
                         draw_stand(screen)
 
 
                     elif((13 <= val <= 16) and (dealer == 2 or dealer == 3) and (soft == True)):
-                        print("problem16")
+
                         draw_hit(screen)
 
 
                     elif((val == 13) and (dealer == 4) and (soft == True)):
-                        print("problem17")
+
                         draw_hit(screen)
 
 
                     elif((val == 13) and (dealer == 5 or dealer ==  6) and (soft == True)):
-                        print("problem18")
+
                         double_screen(screen)
 
 
                     elif((val == 13) and (7 <= dealer <= 11) and (soft == True)):
-                        print("problem19")
+
                         draw_hit(screen)
 
 
 
                     elif((14 <= val <= 16) and (4<= dealer <= 6) and (soft == True)):
-                        print("problem20")
+
                         double_screen(screen)
 
 
                     elif((14 <= val <= 16) and (7<= dealer <= 11) and (soft == True)):
-                        print("problem21")
+
                         draw_hit(screen)
 
 
 
                     elif((val == 17) and (dealer == 2) and (soft == True)):
-                        print("problem22 ")
+
                         draw_hit(screen)
 
 
 
                     elif((val == 17) and (3<= dealer <=6) and (soft == True)):
-                        print("problem23")
+
                         double_screen(screen)
 
 
                     elif((val == 17) and (7 <= dealer <= 11) and (soft == True)):
-                        print("problem 24")
+
                         draw_hit(screen)
 
 
 
                     elif((val == 18) and (2<= dealer <= 6) and (soft == True)):
-                        print("problem25")
+
                         double_screen(screen)
 
 
                     elif((val == 18) and (dealer == 7 or  dealer == 8) and (soft == True)):
-                        print("problem26")
+
                         draw_stand(screen)
 
 
                     elif((val == 18) and (9<= dealer <= 11) and (soft == True)):
-                        print("problem 27")
+
                         draw_hit(screen)
 
 
 
                     elif((val == 19 or val == 20) and (2 <=dealer <= 5) and (soft == True)):
-                        print("problem28")
+
                         draw_stand(screen)
 
 
                     elif((val == 19) and (dealer == 6) and (soft == True)):
-                        print("problem29")
+
                         double_screen(screen)
 
 
                     elif((val == 19) and (7 <= dealer <= 11) and (soft == True)):
-                        print("problem30")
+
                         draw_stand(screen)
 
 
                     elif((val == 20) and (6<= dealer <= 11) and (soft == True)):
-                        print("problem31")
+
                         draw_stand(screen)
 
 
@@ -743,4 +743,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    #hehehehe
