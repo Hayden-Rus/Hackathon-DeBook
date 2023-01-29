@@ -85,7 +85,7 @@ def draw_debook_opened(win):
     win.blit(debook_open, (-80, -55))
     win.blit(red_card, (125, 150))
 
-    red_card_caption =  start_title_font.render("Player Hand:", 0, ((255, 0,0)))
+    red_card_caption =  start_title_font.render("Player Hand Total:", 0, ((255, 0,0)))
     rcaption_rectangle = red_card_caption.get_rect(
         center=(WIDTH // 2 - 167, HEIGHT // 2 -200))
     win.blit(red_card_caption, rcaption_rectangle)
@@ -139,45 +139,45 @@ def draw_debook_opened(win):
                         if len(val) < 2:
                             if event.key == pygame.K_0:
                                 val += str(0)
-                                if (int(val) < 21 and int(val)>3):
+                                if (int(val) < 21):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_1:
                                 val += str(1)
-                                if (int(val) < 21 and int(val)>3):
+                                if (int(val) < 21):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_2:
                                 val += str(2)
-                                if (int(val) < 21 and int(val)>3):
+                                if (int(val) < 21):
                                     draw_text(x_cord, y_cord, val)
                                 else:
                                     break
                             if event.key == pygame.K_3:
                                 val += str(3)
-                                if (int(val) < 21 and int(val)>3):
+                                if (int(val) < 21):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_4:
                                 val += str(4)
-                                if (int(val) < 21 and int(val)>3):
+                                if (int(val) < 21):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_5:
                                 val += str(5)
-                                if (int(val) < 21 and int(val)>3):
+                                if (int(val) < 21):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_6:
                                 val += str(6)
-                                if (int(val) < 21 and int(val)>3):
+                                if (int(val) < 21 ):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_7:
                                 val += str(7)
-                                if (int(val) < 21 and int(val)>3):
+                                if (int(val) < 21 ):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_8:
                                 val += str(8)
-                                if (int(val) < 21 and int(val)>3):
+                                if (int(val) < 21):
                                     draw_text(x_cord, y_cord, val)
                             if event.key == pygame.K_9:
                                 val += str(9)
-                                if (int(val) < 21 and int(val)>3):
+                                if (int(val) < 21):
                                     draw_text(x_cord, y_cord, val)
                         if event.key == pygame.K_BACKSPACE:
                             print("blah")
